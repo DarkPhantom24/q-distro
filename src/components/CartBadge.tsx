@@ -20,8 +20,8 @@ export default function CartBadge() {
   const totalItems = mounted ? getTotalItems() : 0;
 
   return (
-    <Link href="/checkout" className="relative" aria-label="Keranjang belanja">
-      <ShoppingCart className="h-6 w-6 text-white" />
+    <Link href="/checkout" className="relative text-current" aria-label="Keranjang belanja">
+      <ShoppingCart className="h-6 w-6 text-current" />
       {totalItems > 0 && (
         <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-yellow-400 text-[10px] font-bold text-gray-900">
           {totalItems}
