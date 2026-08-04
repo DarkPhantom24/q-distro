@@ -18,6 +18,7 @@ import {
 import Link from "next/link";
 import { useCart } from "@/lib/useCart";
 import CartBadge from "@/components/CartBadge";
+import QRISCode from "@/components/QRISCode";
 
 /* ==========================================
    HELPER
@@ -169,11 +170,11 @@ export default function CheckoutPage() {
       <div className="flex min-h-screen items-center justify-center bg-gray-50 p-3 sm:p-4">
         <div className="w-full max-w-sm sm:max-w-md rounded-xl sm:rounded-2xl bg-white p-5 sm:p-8 shadow-xl text-center">
           <h2 className="mb-4 sm:mb-6 text-xl sm:text-2xl font-bold text-gray-900">Pembayaran QRIS</h2>
-          <div className="mx-auto mb-4 sm:mb-6 flex h-48 w-48 sm:h-64 sm:w-64 items-center justify-center rounded-xl sm:rounded-2xl bg-gray-100">
-            <img
-              src="https://via.placeholder.com/256x256/E5E7EB/9CA3AF?text=QR+CODE"
-              alt="QRIS"
-              className="h-full w-full rounded-xl sm:rounded-2xl"
+          <div className="mx-auto mb-4 sm:mb-6 flex h-48 w-48 sm:h-64 sm:w-64 items-center justify-center rounded-xl sm:rounded-2xl bg-white p-2">
+            <QRISCode
+              amount={checkoutTotalRef.current}
+              merchantName="Q-DISTRO"
+              size={220}
             />
           </div>
           <p className="mb-1.5 sm:mb-2 text-lg sm:text-xl font-bold text-gray-900">{formatRupiah(checkoutTotalRef.current)}</p>
