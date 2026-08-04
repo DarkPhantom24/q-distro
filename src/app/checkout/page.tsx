@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { supabase } from "@/lib/supabase";
 import { useRouter } from "next/navigation";
 import {
@@ -55,6 +55,7 @@ export default function CheckoutPage() {
   const [showQRIS, setShowQRIS] = useState(false);
   const [loading, setLoading] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const checkoutTotalRef = useRef(0);
 
   const biayaLayanan = 1000;
   const pajak = 0.11;
@@ -139,6 +140,8 @@ export default function CheckoutPage() {
 
       if (paymentError) throw paymentError;
 
+      // Simpan total sebelum menampilkan QRIS
+      checkoutTotalRef.current = total;
       setShowQRIS(true);
     } catch (err) {
       console.error("Checkout error:", err);
@@ -173,7 +176,7 @@ export default function CheckoutPage() {
               className="h-full w-full rounded-xl sm:rounded-2xl"
             />
           </div>
-          <p className="mb-1.5 sm:mb-2 text-lg sm:text-xl font-bold text-gray-900">{formatRupiah(total)}</p>
+          <p className="mb-1.5 sm:mb-2 text-lg sm:text-xl font-bold text-gray-900">{formatRupiah(checkoutTotalRef.current)}</p>
           <p className="mb-4 sm:mb-6 text-xs sm:text-sm text-gray-600">Menunggu Pembayaran... kedaluwarsa dalam 05:00</p>
           <button
             onClick={handlePaymentSuccess}
