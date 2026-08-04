@@ -5,6 +5,8 @@ import { cookies } from "next/headers";
 import SiteHeader from "@/components/SiteHeader";
 import ProductDetailClient from "@/components/ProductDetailClient";
 
+export const dynamic = "force-dynamic";
+
 /* ==========================================
    TIPE DATA
    ========================================== */

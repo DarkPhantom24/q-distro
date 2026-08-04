@@ -2,6 +2,8 @@ import { supabase } from "@/lib/supabase";
 import { CatalogPage } from "@/components/CatalogPage";
 import { cookies } from "next/headers";
 
+export const dynamic = "force-dynamic";
+
 /* ==========================================
    TIPE DATA
    ========================================== */
