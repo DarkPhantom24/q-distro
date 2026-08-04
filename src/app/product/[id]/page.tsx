@@ -2,9 +2,7 @@ import { supabase } from "@/lib/supabase";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { cookies } from "next/headers";
-import { Heart } from "lucide-react";
-import ProfileMenu from "@/components/ProfileMenu";
-import CartBadge from "@/components/CartBadge";
+import SiteHeader from "@/components/SiteHeader";
 import ProductDetailClient from "@/components/ProductDetailClient";
 
 /* ==========================================
@@ -127,26 +125,8 @@ export default async function ProductDetailPage({
   }
 
   return (
-    <div className="min-h-screen bg-[#f7f5f2]">
-      <header className="sticky top-0 z-50 bg-[#D62828] shadow-sm">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 h-16 md:px-6">
-          <Link href="/" className="text-xl font-bold tracking-tight text-white">
-            Q-DISTRO
-          </Link>
-          <div className="flex items-center gap-6 text-white text-sm font-medium">
-            <button type="button" aria-label="Wishlist" className="inline-flex items-center gap-2 text-white text-sm font-medium transition hover:text-white/80 focus:outline-none">
-              <Heart className="h-5 w-5" />
-              <span className="hidden sm:inline">Wishlist</span>
-            </button>
-            <span className="inline-flex items-center gap-2 text-white text-sm font-medium">
-              <CartBadge />
-              <span className="hidden sm:inline">Keranjang</span>
-            </span>
-            <ProfileMenu namaUser={namaUser} />
-          </div>
-        </div>
-      </header>
-
+    <div className="min-h-screen bg-gray-50">
+      <SiteHeader namaUser={namaUser} />
       <ProductDetailClient produk={produk} similarProducts={similarProducts} />
     </div>
   );

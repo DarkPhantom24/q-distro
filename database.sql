@@ -171,4 +171,18 @@ VALUES
     ('Celana Cargo Tactical', 'Celana cargo dengan banyak kantong untuk kebutuhan tactical. Bahan ripstop yang kuat dan tahan lama.', 215000, '31', 'Hijau Tua', 'https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=400&h=400&fit=crop', 4);
 
 INSERT INTO stocks (product_id, jumlah_stok)
-VALUES (1, 15),(2, 2),(3, 20),(4, 1),(5, 8),(6, 5),(7, 30),(8, 3),(9, 12),(10, 4),(11, 18),(12, 6);
+VALUES (1, 15),(2, 2),(3, 20),(4, 1),(5, 8),(6, 5),(7, 30),(8, 3),(9, 12),(10, 4),(11, 18),(12, 6),(13, 10),(14, 7);
+
+-- ==========================================
+-- INSERT PRODUK TAMBAHAN (untuk melengkapi grid katalog)
+-- Jalankan query ini jika tabel products sudah memiliki 12 baris:
+-- ==========================================
+/*
+INSERT INTO products (nama, deskripsi, harga, size, warna, image_url, category_id)
+VALUES
+    ('Hoodie Fleece Vintage', 'Hoodie fleece dengan desain vintage streetwear. Bahan tebal dan hangat, cocok untuk cuaca dingin.', 275000, 'L', 'Coklat Muda', 'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=400&h=400&fit=crop', 2),
+    ('Kaos Graphic Art', 'Kaos dengan sablon grafis seni eksklusif. Bahan cotton 30s combed, tebal dan tidak mudah melar.', 115000, 'M', 'Putih', 'https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?w=400&h=400&fit=crop', 1);
+
+INSERT INTO stocks (product_id, jumlah_stok)
+VALUES (13, 10),(14, 7);
+*/

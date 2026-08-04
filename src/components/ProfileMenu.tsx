@@ -9,9 +9,10 @@ import { supabase } from "@/lib/supabase";
 interface ProfileMenuProps {
   namaUser: string | null;
   compact?: boolean;
+  hoverClass?: string;
 }
 
-export default function ProfileMenu({ namaUser, compact = false }: ProfileMenuProps) {
+export default function ProfileMenu({ namaUser, compact = false, hoverClass = "hover:text-red-600" }: ProfileMenuProps) {
   const [open, setOpen] = useState(false);
   const router = useRouter();
   const ref = useRef<HTMLDivElement>(null);
@@ -44,7 +45,7 @@ export default function ProfileMenu({ namaUser, compact = false }: ProfileMenuPr
     }
 
     return (
-      <a href="/login" className="flex items-center gap-2 text-current hover:text-red-600 transition-colors">
+      <a href="/login" className={`flex items-center gap-2 text-current ${hoverClass} transition-colors`}>
         <User className="h-6 w-6" />
         <span className="text-sm font-medium hidden sm:inline">Masuk</span>
       </a>
@@ -68,7 +69,7 @@ export default function ProfileMenu({ namaUser, compact = false }: ProfileMenuPr
       <button
         type="button"
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-2 text-current hover:text-red-600 transition-colors"
+        className={`flex items-center gap-2 text-current ${hoverClass} transition-colors`}
       >
         <User className="h-6 w-6" />
         <span className="text-sm font-medium hidden sm:inline">{namaUser}</span>

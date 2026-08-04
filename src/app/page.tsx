@@ -25,11 +25,12 @@ export interface Product {
 export default async function Home({
   searchParams,
 }: {
-  searchParams?: { kategori?: string; search?: string; page?: string };
+  searchParams?: Promise<{ kategori?: string; search?: string; page?: string }>;
 }) {
-  const kategoriAktif = searchParams?.kategori || "Semua";
-  const queryPencarian = searchParams?.search || "";
-  const halamanSaatIni = parseInt(searchParams?.page || "1", 10);
+  const params = await searchParams;
+  const kategoriAktif = params?.kategori || "Semua";
+  const queryPencarian = params?.search || "";
+  const halamanSaatIni = parseInt(params?.page || "1", 10);
 
   // Fetch data dari Supabase
   let products: Product[] = [];
@@ -82,6 +83,8 @@ export default async function Home({
       { id: "7", nama: "Gantungan Kunci Kulit", harga: 35000, size: "All Size", warna: "Coklat", stok: 30, kategori: "Aksesoris", image_url: "https://images.unsplash.com/photo-1590658268037-6bf12f032f55?w=400&h=400&fit=crop", created_at: now },
       { id: "8", nama: "Celana Jogger Premium", harga: 175000, size: "32", warna: "Abu-abu", stok: 3, kategori: "Celana", image_url: "https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=400&h=400&fit=crop", created_at: now },
       { id: "9", nama: "Kaos Polo Distro", harga: 145000, size: "M", warna: "Biru Navy", stok: 12, kategori: "Kaos", image_url: "https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=400&h=400&fit=crop", created_at: now },
+      { id: "10", nama: "Hoodie Fleece Vintage", harga: 275000, size: "L", warna: "Coklat Muda", stok: 10, kategori: "Jaket", image_url: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=400&h=400&fit=crop", created_at: now },
+      { id: "11", nama: "Kaos Graphic Art", harga: 115000, size: "M", warna: "Putih", stok: 7, kategori: "Kaos", image_url: "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?w=400&h=400&fit=crop", created_at: now },
     ];
   }
 

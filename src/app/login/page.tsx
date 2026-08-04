@@ -82,20 +82,12 @@ export default function LoginPage() {
         {/* Konten branding */}
         <div className="relative z-10 text-center px-12">
           {/* Logo/Toko */}
-          <div className="mx-auto mb-8 w-32 h-32 rounded-full bg-white/10 flex items-center justify-center">
-            <svg
-              className="w-16 h-16 text-white"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1.5}
-                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
-              />
-            </svg>
+          <div className="mx-auto mb-8 w-32 h-32 rounded-full bg-white/15 flex items-center justify-center overflow-hidden">
+            <img
+              src="/project/icon-nobg-512.png"
+              alt="Q-Distro Logo"
+              className="w-24 h-24 object-contain drop-shadow-lg"
+            />
           </div>
           <h1 className="text-4xl font-bold text-white mb-3">Quality Distro</h1>
           <p className="text-lg text-red-100 leading-relaxed">

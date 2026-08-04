@@ -153,60 +153,60 @@ function HeroBanner() {
         <ChevronRight className="h-5 w-5" />
       </button>
 
-      {/* Konten 3 kolom */}
-      <div className="mx-auto max-w-7xl px-14 pt-8 pb-14 grid grid-cols-1 md:grid-cols-3 gap-8 items-center relative z-10">
+      {/* Konten 3 kolom - responsive: 1 kolom di mobile */}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-14 pt-6 sm:pt-8 pb-6 sm:pb-8 lg:pb-14 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 items-center relative z-10">
 
         {/* KOLOM KIRI */}
-        <div className="flex flex-col gap-5">
-          <h1 className="text-5xl md:text-6xl font-black text-white tracking-tight leading-none drop-shadow-lg">
+        <div className="flex flex-col gap-3 sm:gap-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-none drop-shadow-lg">
             Q-DISTRO
           </h1>
-          <p className="text-red-100 text-base md:text-lg font-medium leading-relaxed">
+          <p className="text-red-100 text-xs sm:text-sm md:text-base font-medium leading-relaxed">
             Fashion Lokal Berkualitas<br />Mendukung UMKM Indonesia
           </p>
-          {/* 3 badge info horizontal sejajar */}
-          <div className="flex flex-row items-center gap-4">
-            <div className="flex items-center gap-1.5 text-white text-xs font-medium">
-              <Shield className="h-3.5 w-3.5 shrink-0" />
-              <span>Produk Original</span>
+          {/* 3 badge info horizontal sejajar - responsive */}
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+            <div className="flex items-center gap-1 text-white text-[10px] sm:text-xs font-medium px-1.5 py-0.5 bg-white/20 rounded-full">
+              <Shield className="h-2 w-2 sm:h-3.5 sm:w-3.5 shrink-0" />
+              <span>Original</span>
             </div>
-            <div className="flex items-center gap-1.5 text-white text-xs font-medium">
-              <Tag className="h-3.5 w-3.5 shrink-0" />
-              <span>Harga Terjangkau</span>
+            <div className="flex items-center gap-1 text-white text-[10px] sm:text-xs font-medium px-1.5 py-0.5 bg-white/20 rounded-full">
+              <Tag className="h-2 w-2 sm:h-3.5 sm:w-3.5 shrink-0" />
+              <span>Terjangkau</span>
             </div>
-            <div className="flex items-center gap-1.5 text-white text-xs font-medium">
-              <Store className="h-3.5 w-3.5 shrink-0" />
-              <span>UMKM Lokal</span>
+            <div className="flex items-center gap-1 text-white text-[10px] sm:text-xs font-medium px-1.5 py-0.5 bg-white/20 rounded-full">
+              <Store className="h-2 w-2 sm:h-3.5 sm:w-3.5 shrink-0" />
+              <span>UMKM</span>
             </div>
           </div>
           <a
             href="#katalog"
-            className="inline-flex items-center gap-2 bg-white text-[#D62828] font-bold px-6 py-3 rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200 w-fit text-sm"
+            className="inline-flex items-center gap-1.5 sm:gap-2 bg-white text-[#D62828] font-bold px-4 py-2 sm:px-6 sm:py-2.5 rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200 w-fit text-xs sm:text-sm"
           >
-            Belanja Sekarang <ArrowRight className="h-4 w-4" />
+            Belanja Sekarang <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4" />
           </a>
         </div>
 
-        {/* KOLOM TENGAH — mockup combo produk distro */}
-        <div className="hidden md:flex items-center justify-center h-full">
+        {/* KOLOM TENGAH — mockup combo produk distro - responsive */}
+        <div className="hidden md:flex items-center justify-center h-full order-3 md:order-2">
           <img
             src="/project/hero-product.png"
             alt="Produk Q-DISTRO"
-            className="object-contain max-h-[280px] w-auto"
+            className="object-contain max-h-[200px] sm:max-h-[240px] md:max-h-[280px] w-auto"
             loading="eager"
-            style={{ filter: "drop-shadow(0 16px 48px rgba(0,0,0,0.6)) brightness(1.05)" }}
+            style={{ filter: "drop-shadow(0 12px 32px rgba(0,0,0,0.6)) brightness(1.05)" }}
           />
         </div>
 
-        {/* KOLOM KANAN — Promo Card */}
-        <div className="bg-white rounded-3xl shadow-md p-6 flex flex-col justify-between">
+        {/* KOLOM KANAN — Promo Card - responsive */}
+        <div className="bg-white rounded-2xl sm:rounded-3xl shadow-md p-4 sm:p-5 md:p-6 flex flex-col justify-between order-2 md:order-3">
           {/* Badge */}
-          <span className="text-[10px] font-black text-white bg-[#D62828] px-3 py-1 rounded-full tracking-wide w-fit mb-3">
+          <span className="text-[9px] sm:text-[10px] font-black text-[#D62828] bg-white border border-[#D62828]/20 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full tracking-wide w-fit mb-2 sm:mb-3">
             PROMO SPESIAL
           </span>
-          {/* Diskon horizontal */}
-          <div className="flex flex-row items-baseline gap-3 mb-2">
-            <span className="text-xl font-bold text-gray-800">Diskon</span>
+          {/* Diskon horizontal - responsive */}
+          <div className="flex flex-row items-baseline gap-2 sm:gap-3 mb-2">
+            <span className="text-lg sm:text-xl font-bold text-gray-800">Diskon</span>
             <span className="text-5xl font-black text-red-600 leading-none">20%</span>
           </div>
           {/* Deskripsi */}
@@ -261,20 +261,20 @@ function HeroBanner() {
 function FeatureSection() {
   const ref = useFadeUp();
   const features = [
-    { icon: <Truck className="h-6 w-6 text-[#D62828]" />, title: "Gratis Ongkir", desc: "Min. Pembelian Rp150.000" },
-    { icon: <CreditCard className="h-6 w-6 text-[#D62828]" />, title: "Bayar QRIS", desc: "Cepat, Aman & Mudah" },
-    { icon: <Shield className="h-6 w-6 text-[#D62828]" />, title: "Produk Original", desc: "100% Garansi Keaslian" },
-    { icon: <Headphones className="h-6 w-6 text-[#D62828]" />, title: "Fast Response", desc: "WhatsApp Admin Aktif" },
+    { icon: <Truck className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-[#D62828]" />, title: "Gratis Ongkir", desc: "Min. Pembelian Rp150.000" },
+    { icon: <CreditCard className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-[#D62828]" />, title: "Bayar QRIS", desc: "Cepat, Aman & Mudah" },
+    { icon: <Shield className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-[#D62828]" />, title: "Produk Original", desc: "100% Garansi Keaslian" },
+    { icon: <Headphones className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-[#D62828]" />, title: "Fast Response", desc: "WhatsApp Admin Aktif" },
   ];
   return (
-    <div ref={ref} className="mx-auto max-w-7xl px-6 py-4">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+    <div ref={ref} className="mx-auto max-w-7xl px-3 sm:px-4 md:px-6 py-3 sm:py-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3 md:gap-4">
         {features.map((f) => (
-          <div key={f.title} className="bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 px-4 py-4 hover:shadow-md transition-shadow duration-200">
-            <div className="shrink-0 bg-red-50 rounded-lg p-2">{f.icon}</div>
+          <div key={f.title} className="bg-white rounded-xl shadow-sm border border-gray-100 flex items-center gap-2 sm:gap-3 px-3 py-3 sm:px-4 sm:py-4 hover:shadow-md transition-shadow duration-200">
+            <div className="shrink-0 bg-red-50 rounded-lg p-1.5 sm:p-2">{f.icon}</div>
             <div>
-              <p className="text-sm font-bold text-gray-800">{f.title}</p>
-              <p className="text-xs text-gray-500">{f.desc}</p>
+              <p className="text-xs sm:text-sm font-bold text-gray-800">{f.title}</p>
+              <p className="text-[10px] sm:text-xs text-gray-500">{f.desc}</p>
             </div>
           </div>
         ))}
@@ -286,53 +286,53 @@ function FeatureSection() {
 /* ── Footer ── */
 function Footer() {
   return (
-    <footer className="bg-gray-900 border-t border-gray-800 text-gray-300 mt-6">
-      <div className="mx-auto max-w-7xl px-6 py-12 grid grid-cols-2 md:grid-cols-4 gap-8">
-        {/* Col 1 — Brand */}
+    <footer className="bg-gray-900 border-t border-gray-800 text-gray-300 mt-4 sm:mt-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-6 sm:py-8 md:py-12 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+        {/* Col 1 — Brand - responsive */}
         <div className="col-span-2 md:col-span-1">
-          <h3 className="text-xl font-black text-red-500 mb-2">Q-DISTRO</h3>
-          <p className="text-sm text-gray-400 leading-relaxed mb-4">
+          <h3 className="text-lg sm:text-xl font-black text-red-500 mb-1.5 sm:mb-2">Q-DISTRO</h3>
+          <p className="text-xs sm:text-sm text-gray-400 leading-relaxed mb-3 sm:mb-4">
             Marketplace fashion lokal berkualitas yang mendukung UMKM Indonesia.
           </p>
-          <div className="flex gap-2">
+          <div className="flex gap-1.5 sm:gap-2">
             {[
-              { icon: <Heart className="h-4 w-4" />, href: "#", label: "Instagram" },
-              { icon: <Phone className="h-4 w-4" />, href: "#", label: "WhatsApp" },
-              { icon: <MessageCircle className="h-4 w-4" />, href: "#", label: "Facebook" },
-              { icon: <Mail className="h-4 w-4" />, href: "#", label: "TikTok" },
+              { icon: <Heart className="h-3 w-3 sm:h-4 sm:w-4" />, href: "#", label: "Instagram" },
+              { icon: <Phone className="h-3 w-3 sm:h-4 sm:w-4" />, href: "#", label: "WhatsApp" },
+              { icon: <MessageCircle className="h-3 w-3 sm:h-4 sm:w-4" />, href: "#", label: "Facebook" },
+              { icon: <Mail className="h-3 w-3 sm:h-4 sm:w-4" />, href: "#", label: "TikTok" },
             ].map((s) => (
               <a key={s.label} href={s.href} aria-label={s.label}
-                className="bg-gray-800/50 border border-gray-700 text-gray-300 hover:bg-gray-700 p-2 rounded-lg transition-colors duration-200">
+                className="bg-gray-800/50 border border-gray-700 text-gray-300 hover:bg-gray-700 p-1.5 sm:p-2 rounded-lg transition-colors duration-200">
                 {s.icon}
               </a>
             ))}
           </div>
         </div>
 
-        {/* Col 2 — Informasi */}
+        {/* Col 2 — Informasi - responsive */}
         <div>
-          <h4 className="text-sm font-semibold text-white mb-3">Informasi</h4>
-          <ul className="space-y-2 text-sm">
+          <h4 className="text-xs sm:text-sm font-semibold text-white mb-2 sm:mb-3">Informasi</h4>
+          <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
             {["Tentang Kami", "Cara Belanja", "Kebijakan Privasi", "Syarat & Ketentuan"].map((l) => (
               <li key={l}><a href="#" className="text-gray-300 hover:text-white transition-colors">{l}</a></li>
             ))}
           </ul>
         </div>
 
-        {/* Col 3 — Bantuan */}
+        {/* Col 3 — Bantuan - responsive */}
         <div>
-          <h4 className="text-sm font-semibold text-white mb-3">Bantuan</h4>
-          <ul className="space-y-2 text-sm">
+          <h4 className="text-xs sm:text-sm font-semibold text-white mb-2 sm:mb-3">Bantuan</h4>
+          <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
             {["FAQ", "Panduan Pembayaran", "Pengembalian Barang", "Hubungi Kami"].map((l) => (
               <li key={l}><a href="#" className="text-gray-300 hover:text-white transition-colors">{l}</a></li>
             ))}
           </ul>
         </div>
 
-        {/* Col 4 — Pembayaran */}
+        {/* Col 4 — Pembayaran - responsive */}
         <div>
-          <h4 className="text-sm font-semibold text-white mb-3">Pembayaran</h4>
-          <div className="flex flex-wrap gap-1.5">
+          <h4 className="text-xs sm:text-sm font-semibold text-white mb-2 sm:mb-3">Pembayaran</h4>
+          <div className="flex flex-wrap gap-1 sm:gap-1.5">
             {([
               { label: "QRIS",      bg: "#000000", text: "#ffffff" },
               { label: "OVO",       bg: "#4c3494", text: "#ffffff" },
@@ -400,45 +400,48 @@ export function CatalogPage({
   return (
     <div className="min-h-screen bg-gray-50">
 
-      {/* ── STICKY HEADER ── */}
+      {/* ── STICKY HEADER - responsive ── */}
       <header className="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm">
-        <div className="mx-auto max-w-7xl px-4 md:px-6 h-16 flex items-center gap-3 md:gap-4">
-          {/* Logo */}
-          <a href="/" className="text-red-600 font-bold text-xl tracking-tight shrink-0 hover:text-red-700 transition-colors">
+        <div className="mx-auto max-w-7xl px-3 sm:px-4 md:px-6 h-14 sm:h-16 flex items-center gap-2 sm:gap-3 md:gap-4">
+          {/* Logo - responsive */}
+          <a href="/" className="text-red-600 font-bold text-lg sm:text-xl tracking-tight shrink-0 hover:text-red-700 transition-colors">
             Q-DISTRO
           </a>
 
-          {/* Search Bar */}
+          {/* Search Bar - responsive */}
           <div className="flex-1 relative">
             <input
               type="text"
-              placeholder="Cari produk, kategori, atau merek..."
+              placeholder="Cari produk..."
               value={queryPencarian}
               onChange={(e) => handleSearch(e.target.value)}
-              className="w-full bg-white border border-gray-200 rounded-lg shadow-sm px-4 py-2 pr-10 text-sm text-gray-800 placeholder-gray-400 outline-none focus:border-red-400 transition-all duration-200"
+              className="w-full bg-white border border-gray-200 rounded-lg shadow-sm px-3 sm:px-4 py-1.5 sm:py-2 pr-8 sm:pr-10 text-xs sm:text-sm text-gray-800 placeholder-gray-400 outline-none focus:border-red-400 transition-all duration-200"
               aria-label="Cari produk"
             />
-            <Search className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-500 pointer-events-none" />
+            <Search className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 sm:h-4 sm:w-4 text-gray-500 pointer-events-none" />
           </div>
 
-          {/* Right icons */}
-          <div className="flex items-center gap-4 shrink-0">
-            <button aria-label="Wishlist" className="flex items-center gap-2 text-gray-700 hover:text-red-600 transition-colors hidden sm:flex">
-              <Heart className="h-5 w-5" />
-              <span className="text-sm font-medium">Wishlist</span>
+          {/* Right icons - responsive */}
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden p-1.5 text-gray-700">
+              <Grid3X3 className="h-5 w-5" />
             </button>
-            <div className="flex items-center gap-2 text-gray-700 hidden sm:flex">
+            <button aria-label="Wishlist" className="flex items-center gap-1.5 sm:gap-2 text-gray-700 hover:text-red-600 transition-colors hidden sm:flex">
+              <Heart className="h-4 w-4 sm:h-5 sm:w-5" />
+              <span className="text-xs sm:text-sm font-medium">Wishlist</span>
+            </button>
+            <div className="flex items-center gap-1.5 sm:gap-2 text-gray-700 hover:text-red-600 transition-colors hidden sm:flex">
               <CartBadge />
-              <span className="text-sm font-medium">Keranjang</span>
+              <span className="text-xs sm:text-sm font-medium">Keranjang</span>
             </div>
             <div className="sm:hidden"><CartBadge /></div>
             <ProfileMenu namaUser={namaUser} />
           </div>
         </div>
 
-        {/* Mobile menu */}
+        {/* Mobile menu - responsive */}
         {mobileMenuOpen && (
-          <div className="bg-gray-50 border-t border-gray-100 px-4 py-3 flex gap-2 overflow-x-auto scrollbar-hide">
+          <div className="bg-gray-50 border-t border-gray-100 px-4 py-3 flex gap-2 overflow-x-auto scrollbar-hide md:hidden">
             {KATEGORI_LIST.map((k) => (
               <button key={k} onClick={() => { handleKategori(k); setMobileMenuOpen(false); }}
                 className={`shrink-0 text-xs font-semibold px-3 py-1.5 rounded-full transition-colors ${kategoriAktif === k ? "bg-[#D62828] text-white" : "bg-white text-gray-600 border border-gray-200 hover:border-[#D62828] hover:text-[#D62828]"}`}>
@@ -455,16 +458,16 @@ export function CatalogPage({
       {/* ── FEATURE SECTION ── */}
       <FeatureSection />
 
-      {/* ── CATALOG SECTION ── */}
-      <main id="katalog" className="mx-auto max-w-7xl px-4 md:px-6 pb-12">
+      {/* ── CATALOG SECTION - responsive ── */}
+      <main id="katalog" className="mx-auto max-w-7xl px-3 sm:px-4 md:px-6 pb-6 sm:pb-8 md:pb-12">
 
-        {/* Category Chips + Toolbar */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
-          {/* Chips */}
-          <div className="flex gap-2 overflow-x-auto scrollbar-hide pb-1">
+        {/* Category Chips + Toolbar - responsive */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-3 mb-4 sm:mb-6">
+          {/* Chips - responsive */}
+          <div className="flex gap-1.5 sm:gap-2 overflow-x-auto scrollbar-hide pb-1 sm:pb-0">
             {KATEGORI_LIST.map((k) => (
               <button key={k} onClick={() => handleKategori(k)}
-                className={`shrink-0 text-sm font-semibold px-4 py-2 rounded-full transition-all duration-200 ${kategoriAktif === k
+                className={`shrink-0 text-xs sm:text-sm font-semibold px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-full transition-all duration-200 ${kategoriAktif === k
                   ? "bg-[#D62828] text-white shadow-md shadow-red-200"
                   : "bg-white text-gray-600 border border-gray-200 hover:border-[#D62828] hover:text-[#D62828]"}`}>
                 {k}
@@ -472,57 +475,57 @@ export function CatalogPage({
             ))}
           </div>
 
-          {/* Toolbar */}
-          <div className="flex items-center gap-2 shrink-0">
+          {/* Toolbar - responsive */}
+          <div className="flex items-center gap-1.5 sm:gap-2 shrink-0 mt-2 sm:mt-0">
             <div className="relative">
               <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}
-                className="appearance-none text-sm border border-gray-200 bg-white text-gray-700 rounded-lg pl-3 pr-8 py-2 outline-none focus:border-[#D62828] cursor-pointer">
+                className="appearance-none text-xs sm:text-sm border border-gray-200 bg-white text-gray-700 rounded-lg pl-8 pr-6 sm:pl-3 sm:pr-8 py-1.5 sm:py-2 outline-none focus:border-[#D62828] cursor-pointer">
                 {SORT_OPTIONS.map((o) => <option key={o}>{o}</option>)}
               </select>
-              <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
+              <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 h-3 w-3 sm:h-4 sm:w-4 text-gray-400 pointer-events-none" />
             </div>
             <button onClick={() => setViewMode("grid")} aria-label="Grid view"
-              className={`p-2 rounded-lg border transition-colors ${viewMode === "grid" ? "bg-[#D62828] border-[#D62828] text-white" : "bg-white border-gray-200 text-gray-500 hover:border-[#D62828]"}`}>
-              <Grid3X3 className="h-4 w-4" />
+              className={`p-1.5 sm:p-2 rounded-lg border transition-colors ${viewMode === "grid" ? "bg-[#D62828] border-[#D62828] text-white" : "bg-white border-gray-200 text-gray-500 hover:border-[#D62828]"}`}>
+              <Grid3X3 className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
             </button>
             <button onClick={() => setViewMode("list")} aria-label="List view"
-              className={`p-2 rounded-lg border transition-colors ${viewMode === "list" ? "bg-[#D62828] border-[#D62828] text-white" : "bg-white border-gray-200 text-gray-500 hover:border-[#D62828]"}`}>
-              <List className="h-4 w-4" />
+              className={`p-1.5 sm:p-2 rounded-lg border transition-colors ${viewMode === "list" ? "bg-[#D62828] border-[#D62828] text-white" : "bg-white border-gray-200 text-gray-500 hover:border-[#D62828]"}`}>
+              <List className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
             </button>
           </div>
         </div>
 
         {fetchError && (
-          <div className="mb-4 rounded-xl bg-red-50 border border-red-200 p-4 text-red-600 text-sm">
+          <div className="mb-3 sm:mb-4 rounded-lg sm:rounded-xl bg-red-50 border border-red-200 p-3 sm:p-4 text-xs sm:text-sm text-red-600">
             <p className="font-semibold">Gagal memuat data: {fetchError}</p>
-            <p className="text-xs mt-1">Menampilkan data sample sebagai fallback.</p>
+            <p className="text-[10px] sm:text-xs mt-1">Menampilkan data sample sebagai fallback.</p>
           </div>
         )}
 
         {produkTampil.length === 0 ? (
-          <div className="py-24 text-center text-gray-400">
-            <Search className="h-12 w-12 mx-auto mb-3 opacity-30" />
-            <p className="text-lg font-semibold text-gray-500">Produk tidak ditemukan</p>
-            <p className="text-sm mt-1">Coba kata kunci atau kategori lain.</p>
+          <div className="py-16 sm:py-24 text-center text-gray-400">
+            <Search className="h-10 w-10 sm:h-12 sm:w-12 mx-auto mb-2 sm:mb-3 opacity-30" />
+            <p className="text-sm sm:text-lg font-semibold text-gray-500">Produk tidak ditemukan</p>
+            <p className="text-xs sm:text-sm mt-1">Coba kata kunci atau kategori lain.</p>
           </div>
         ) : (
           <>
             <div ref={gridRef}
               className={viewMode === "grid"
-                ? "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4"
-                : "flex flex-col gap-4"}>
+                ? "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 sm:gap-3 md:gap-3 sm:gap-4"
+                : "flex flex-col gap-3 sm:gap-4"}>
               {produkTampil.map((produk) => (
                 <ProductCard key={produk.id} produk={produk} formatRupiah={formatRupiah} viewMode={viewMode} />
               ))}
             </div>
 
-            {/* Pagination */}
+            {/* Pagination - responsive */}
             {totalHalaman > 0 && (
-              <div className="flex justify-center items-center gap-2 my-8">
+              <div className="flex justify-center items-center gap-1 sm:gap-2 my-6 sm:my-8">
                 <button onClick={() => setHalamanSaatIni((h) => Math.max(1, h - 1))} disabled={halamanSaatIni === 1}
                   aria-label="Halaman sebelumnya"
-                  className="flex h-9 w-9 items-center justify-center rounded-lg border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed transition-colors">
-                  <ChevronLeft className="h-4 w-4" />
+                  className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-lg border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed transition-colors">
+                  <ChevronLeft className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                 </button>
                 {(() => {
                   const pages: (number | "...")[] = [];
@@ -537,10 +540,10 @@ export function CatalogPage({
                   }
                   return pages.map((p, i) =>
                     p === "..." ? (
-                      <span key={`ellipsis-${i}`} className="px-1 text-gray-400 text-sm">...</span>
+                      <span key={`ellipsis-${i}`} className="px-0.5 sm:px-1 text-gray-400 text-xs sm:text-sm">...</span>
                     ) : (
                       <button key={p} onClick={() => setHalamanSaatIni(p as number)}
-                        className={`flex h-9 min-w-[36px] items-center justify-center rounded-lg px-3 py-1.5 text-sm font-bold transition-colors shadow-sm ${
+                        className={`flex h-8 sm:h-9 min-w-[28px] sm:min-w-[36px] items-center justify-center rounded-lg px-2 sm:px-3 py-1 sm:py-1.5 text-xs sm:text-sm font-bold transition-colors shadow-sm ${
                           halamanSaatIni === p
                             ? "bg-red-600 text-white shadow-red-200"
                             : "bg-white border border-gray-200 text-gray-700 hover:bg-gray-50"
@@ -552,8 +555,8 @@ export function CatalogPage({
                 })()}
                 <button onClick={() => setHalamanSaatIni((h) => Math.min(totalHalaman, h + 1))} disabled={halamanSaatIni === totalHalaman}
                   aria-label="Halaman berikutnya"
-                  className="flex h-9 w-9 items-center justify-center rounded-lg border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed transition-colors">
-                  <ChevronRight className="h-4 w-4" />
+                  className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-lg border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed transition-colors">
+                  <ChevronRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                 </button>
               </div>
             )}
