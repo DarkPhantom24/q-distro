@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import AdminSidebar from "@/components/AdminSidebar";
 import AdminHeader from "@/components/AdminHeader";
@@ -64,7 +64,7 @@ export default function PengaturanPage() {
   const [error, setError]         = useState("");
 
   const [nama, setNama]           = useState("Admin Q-Distro");
-  const [email]                   = useState("admin@qualitydistro.com");
+  const [email, setEmail]         = useState("");
   const [noTelp, setNoTelp]       = useState("081234567890");
   const [alamat, setAlamat]       = useState("Jl. Raya Distro No. 1");
 
@@ -90,6 +90,14 @@ export default function PengaturanPage() {
   const [tarifPPN, setTarifPPN]   = useState("11");
   const [matauang, setMatauang]   = useState("IDR");
   const [modePajak, setModePajak] = useState(true);
+
+  /* ── Load data user dari Supabase Auth ── */
+  useEffect(() => {
+    supabase.auth.getUser().then(({ data }) => {
+      if (data.user?.email) setEmail(data.user.email);
+      if (data.user?.user_metadata?.nama_lengkap) setNama(data.user.user_metadata.nama_lengkap);
+    });
+  }, []);
 
   const inputCls = "w-full rounded-lg bg-white border border-gray-200 px-3 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 outline-none focus:border-[#D62828] focus:ring-2 focus:ring-red-100 transition-colors";
 

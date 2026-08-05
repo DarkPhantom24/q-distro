@@ -56,3 +56,7 @@ next-env.d.ts
 # OS
 Thumbs.db
 .DS_Store
+
+# SQL seed / admin inserts — never commit
+insert_admin.sql
+insert_admin_ryadi.sql

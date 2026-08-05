@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Bell, User, Settings, LogOut, ChevronRight, Package, AlertTriangle, TrendingUp, X, Menu } from "lucide-react";
+import { supabase } from "@/lib/supabase";
 
 interface AdminHeaderProps {
   title: string;
@@ -90,6 +91,14 @@ const TYPE_STYLE: Record<NotifType, { dot: string; bg: string; icon: React.Eleme
 export default function AdminHeader({ title, subtitle, onMenuClick }: AdminHeaderProps) {
   const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [userEmail, setUserEmail] = useState("");
+
+  /* ── Ambil email user dari Supabase Auth ── */
+  useEffect(() => {
+    supabase.auth.getUser().then(({ data }) => {
+      if (data.user?.email) setUserEmail(data.user.email);
+    });
+  }, []);
 
   /* ── State notifikasi ── */
   const [notifs, setNotifs]           = useState<Notif[]>(INITIAL_NOTIFS);
@@ -267,7 +276,7 @@ export default function AdminHeader({ title, subtitle, onMenuClick }: AdminHeade
                 </div>
                 <div className="min-w-0">
                   <p className="text-xs font-bold text-gray-900 truncate">Admin</p>
-                  <p className="text-[10px] text-gray-500 truncate">admin@qualitydistro.com</p>
+                  <p className="text-[10px] text-gray-500 truncate">{userEmail || "admin@qualitydistro.com"}</p>
                   <span className="mt-1 inline-block rounded-full bg-red-50 border border-red-200 px-1.5 py-0.5 text-[9px] font-bold text-red-600 uppercase tracking-wide">
                     Administrator
                   </span>

@@ -3,6 +3,8 @@
 import { Product as ProductType } from "@/app/page";
 import Link from "next/link";
 import { useCart } from "@/lib/useCart";
+import { useBuyerGuard } from "@/lib/useBuyerGuard";
+import AuthRequiredModal from "./AuthRequiredModal";
 import { Heart, Star, ShoppingCart, Flame } from "lucide-react";
 import { useState } from "react";
 
@@ -24,8 +26,10 @@ function getBadges(produk: ProductType) {
 
 export function ProductCard({ produk, formatRupiah, viewMode = "grid" }: ProductCardProps) {
   const { addToCart, cartItems } = useCart();
+  const { canAddToCart } = useBuyerGuard();
   const [wishlisted, setWishlisted] = useState(false);
   const [added, setAdded] = useState(false);
+  const [showLoginModal, setShowLoginModal] = useState(false);
 
   const stokHabis = produk.stok === 0;
   // Qty produk ini yang sudah ada di cart (semua varian size/warna)
@@ -42,10 +46,17 @@ export function ProductCard({ produk, formatRupiah, viewMode = "grid" }: Product
   const rating = 4.2 + (parseInt(produk.id) % 8) * 0.1;
   const ulasan = 12 + (parseInt(produk.id) % 50);
 
-  function handleAddToCart(e: React.MouseEvent) {
+  async function handleAddToCart(e: React.MouseEvent) {
     e.preventDefault();
     e.stopPropagation();
     if (isDisabled) return;
+
+    const allowed = await canAddToCart();
+    if (!allowed) {
+      setShowLoginModal(true);
+      return;
+    }
+
     addToCart({ id: produk.id, nama: produk.nama, harga: produk.harga, image_url: produk.image_url, stok: produk.stok });
     setAdded(true);
     setTimeout(() => setAdded(false), 1500);
@@ -59,6 +70,8 @@ export function ProductCard({ produk, formatRupiah, viewMode = "grid" }: Product
 
   if (viewMode === "list") {
     return (
+      <>
+      <AuthRequiredModal open={showLoginModal} onClose={() => setShowLoginModal(false)} />
       <article className="bg-white rounded-xl sm:rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden flex gap-3 sm:gap-4 p-2.5 sm:p-3">
         <Link href={`/product/${produk.id}`} className="shrink-0 relative w-20 h-20 sm:w-24 sm:h-24 rounded-lg sm:rounded-xl overflow-hidden bg-gray-100">
           <img src={produk.image_url || "/placeholder.jpg"} alt={produk.nama} className="w-full h-full object-cover" loading="lazy" />
@@ -92,10 +105,13 @@ export function ProductCard({ produk, formatRupiah, viewMode = "grid" }: Product
           </button>
         </div>
       </article>
+      </>
     );
   }
 
   return (
+    <>
+    <AuthRequiredModal open={showLoginModal} onClose={() => setShowLoginModal(false)} />
     <article className="group flex flex-col bg-white rounded-xl sm:rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200 overflow-hidden">
       <Link href={`/product/${produk.id}`} className="relative block overflow-hidden bg-gray-100 aspect-square">
         <img src={produk.image_url || "/placeholder.jpg"} alt={produk.nama}
@@ -163,5 +179,6 @@ export function ProductCard({ produk, formatRupiah, viewMode = "grid" }: Product
         </button>
       </div>
     </article>
+    </>
   );
 }

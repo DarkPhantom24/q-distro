@@ -31,18 +31,21 @@ export default function LoginPage() {
       });
 
       if (error) {
-        if (error.message.includes("Invalid login credentials")) {
+        const msg = error?.message || JSON.stringify(error) || "";
+        if (msg.includes("Invalid login credentials")) {
           setErrorMsg("Email atau password salah. Silakan coba lagi.");
-        } else if (error.message.includes("Email not confirmed")) {
+        } else if (msg.includes("Email not confirmed")) {
           setErrorMsg("Email belum dikonfirmasi. Silakan cek inbox Anda.");
         } else {
-          setErrorMsg(error.message || "Terjadi kesalahan saat login.");
+          setErrorMsg(msg || "Terjadi kesalahan saat login.");
         }
         setLoading(false);
         return;
       }
 
       // Login berhasil, ambil role dari tabel users
+      let targetPath = "/";
+
       if (data.user) {
         const { data: userData } = await supabase
           .from("users")
@@ -56,12 +59,13 @@ export default function LoginPage() {
 
         if (roleName) {
           document.cookie = `userRole=${roleName}; path=/; max-age=86400`;
+          targetPath = roleName === "admin" ? "/dashboard" : "/";
         } else {
           document.cookie = "userRole=buyer; path=/; max-age=86400";
         }
       }
 
-      router.push("/");
+      router.push(targetPath);
       router.refresh();
     } catch (err: any) {
       setErrorMsg("Terjadi kesalahan jaringan. Silakan coba lagi.");

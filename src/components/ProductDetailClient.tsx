@@ -5,6 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCart } from "@/lib/useCart";
+import { useBuyerGuard } from "@/lib/useBuyerGuard";
+import AuthRequiredModal from "./AuthRequiredModal";
 import { ProductCard } from "./ProductCard";
 import type { Product as ProductType } from "@/app/page";
 import {
@@ -134,6 +136,8 @@ function formatRupiah(n: number) {
 export default function ProductDetailClient({ produk, similarProducts }: Props) {
   const router = useRouter();
   const { addToCart, cartItems } = useCart();
+  const { canAddToCart } = useBuyerGuard();
+  const [showLoginModal, setShowLoginModal] = useState(false);
 
   const images = [produk.image_url, produk.image_url, produk.image_url].filter(Boolean) as string[];
   const displayImages = images.length > 0 ? images : ["/placeholder.jpg"];
@@ -213,8 +217,15 @@ export default function ProductDetailClient({ produk, similarProducts }: Props) 
 
   const [toast, setToast] = useState<"success" | null>(null);
 
-  const handleAddToCart = () => {
+  const handleAddToCart = async () => {
     if (stokHabis || stokTercapai) return;
+
+    const allowed = await canAddToCart();
+    if (!allowed) {
+      setShowLoginModal(true);
+      return;
+    }
+
     const success = addToCart(
       {
         id: produk.id.toString(),
@@ -234,6 +245,8 @@ export default function ProductDetailClient({ produk, similarProducts }: Props) 
   };
 
   return (
+    <>
+    <AuthRequiredModal open={showLoginModal} onClose={() => setShowLoginModal(false)} />
     <div className="min-h-screen bg-gray-50 text-slate-900">
       <div className="mx-auto max-w-7xl px-3 py-3 sm:px-4 sm:py-5 md:px-6 lg:py-6">
         {/* Breadcrumb - responsive */}
@@ -598,5 +611,6 @@ export default function ProductDetailClient({ produk, similarProducts }: Props) 
         </div>
       )}
     </div>
+    </>
   );
 }
