@@ -32,10 +32,11 @@ export default function LoginPage() {
 
       if (error) {
         const msg = error?.message || JSON.stringify(error) || "";
-        if (msg.includes("Invalid login credentials")) {
+        if (
+          msg.includes("Invalid login credentials") ||
+          msg.includes("Email not confirmed")
+        ) {
           setErrorMsg("Email atau password salah. Silakan coba lagi.");
-        } else if (msg.includes("Email not confirmed")) {
-          setErrorMsg("Email belum dikonfirmasi. Silakan cek inbox Anda.");
         } else {
           setErrorMsg(msg || "Terjadi kesalahan saat login.");
         }
@@ -59,9 +60,11 @@ export default function LoginPage() {
 
         if (roleName) {
           document.cookie = `userRole=${roleName}; path=/; max-age=86400`;
+          document.cookie = `userEmail=${encodeURIComponent(data.user.email || "")}; path=/; max-age=86400`;
           targetPath = roleName === "admin" ? "/dashboard" : "/";
         } else {
           document.cookie = "userRole=buyer; path=/; max-age=86400";
+          document.cookie = `userEmail=${encodeURIComponent(data.user.email || "")}; path=/; max-age=86400`;
         }
       }
 

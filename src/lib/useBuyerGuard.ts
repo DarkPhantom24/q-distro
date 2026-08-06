@@ -20,10 +20,19 @@ export function useBuyerGuard() {
       .from("users")
       .select("role_id, roles(nama_role)")
       .eq("email", user.email)
-      .single();
+      .maybeSingle();
 
     const roleData = data as any;
     const roleName = roleData?.roles?.[0]?.nama_role || roleData?.roles?.nama_role;
+
+    if (!roleName) {
+      const cookieRole = document.cookie
+        .split("; ")
+        .find((c) => c.startsWith("userRole="))
+        ?.split("=")[1];
+
+      return cookieRole === "buyer";
+    }
 
     return roleName === "buyer";
   }, []);

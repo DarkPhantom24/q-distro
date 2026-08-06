@@ -67,12 +67,13 @@ export default function RegisterPage() {
         });
       }
 
+      // Setelah register berhasil, tampilkan pesan lalu arahkan ke login
       setSuccessMsg("Pendaftaran berhasil! Mengarahkan ke halaman login...");
       setLoading(false);
 
       setTimeout(() => {
         router.push("/login");
-      }, 2000);
+      }, 1500);
     } catch (err: any) {
       setErrorMsg("Terjadi kesalahan jaringan. Silakan coba lagi.");
       setLoading(false);
